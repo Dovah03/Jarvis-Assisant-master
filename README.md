@@ -1,7 +1,7 @@
 # Mavis Assistant
  Mavis Assistant
 
-## Step-
+## Steps
 
 1. Clone the repo
 2. pip install -r requirements.txt
