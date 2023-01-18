@@ -22,7 +22,7 @@ initiate greeting sequence to be played on jarvis startup
 def greet():
     greet_text = ""
     "for full date message"
-    # weekday=datetime.ctime(datetime.now())
+    weekday = datetime.ctime(datetime.now())
     hour = int(datetime.now().hour)
     if hour >= 0 and hour < 12:
         greet_text = "Good Morning Sir. "
@@ -30,14 +30,14 @@ def greet():
         greet_text = "Good Afternoon Sir. "
     else:
         greet_text = "Good Evening Sir. "
-    # greet_text+="Today is the {}".format(weekday)
+    greet_text += "Today is the {}, also".format(weekday)
 
-    if hour > 12:
-        greet_text += "It's "+str(hour-12)+" " + \
-            str(datetime.now().minute)+" PM "+" now."
-    else:
-        greet_text += "It's "+str(hour)+" " + \
-            str(datetime.now().minute)+" AM "+" now."
+    # if hour > 12:
+    #    greet_text += "It's "+str(hour-12)+" " + \
+    #        str(datetime.now().minute)+" PM "+" now."
+    # else:
+    #    greet_text += "It's "+str(hour)+" " + \
+    #        str(datetime.now().minute)+" AM "+" now."
 
     # fetch and retuens current weather conditions for Dakhla
     greet_text += Mavis.weather("dakhla")
@@ -85,13 +85,13 @@ while res:
     if re.search('joke|jokes', res):
         Mavis.tell_me_Joke()
 
-    if re.search('search in youtube for', res) or re.search('searching in youtube for', res) or re.search('search youtube for', res):
+    if re.search('search in youtube for|searching in youtube for|search youtube for', res):
         search = res.split(' ')[-1]
         t2s("searching for "+search+" in youtube")
         open_result = Mavis.website_opener(
             "youtube.com/results?search_query="+search)
 
-    if re.search('search in google for', res) or re.search('searching in google for', res) or re.search('search google for', res) or re.search('google search for', res):
+    if re.search('search in google for|searching in google for|search google for|google search for', res):
         search = res.split(' ')[-1]
         t2s("searching for "+search+" in google")
         open_result = Mavis.website_opener(
@@ -99,8 +99,8 @@ while res:
 
     if re.search('open directory name', res):
         dict_dir = {
-            'games': 'C:\\Users\lenovo\Desktop\Games',
-            'dev tools': 'C:\\Users\lenovo\Desktop\Dev Tools'
+            # 'games': 'C:\\Users\lenovo\Desktop\Games',
+            # 'dev tools': 'C:\\Users\lenovo\Desktop\Dev Tools'
         }
 
         dir = res.split(' ', 1)[1]
@@ -123,9 +123,9 @@ while res:
 
     if re.search('launch', res):
         dict_app = {
-            'chrome': 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
-            'league': 'E:\Riot Games\League of Legends\LeagueClient.exe',
-            'yogi': 'E:\Games\Yu-Gi-Oh.Legacy.of.the.Duelist.Link.Evolution-GoldBerg\Yu-Gi-Oh! Legacy of the Duelist Link Evolution\YuGiOh.exe'
+            'chrome': 'C:\Program Files\Google\Chrome\Application\chrome.exe',
+            # 'league': 'E:\Riot Games\League of Legends\LeagueClient.exe',
+            # 'yogi': 'E:\Games\Yu-Gi-Oh.Legacy.of.the.Duelist.Link.Evolution-GoldBerg\Yu-Gi-Oh! Legacy of the Duelist Link Evolution\YuGiOh.exe'
         }
 
         app = res.split(' ', 1)[1]
@@ -139,9 +139,9 @@ while res:
 
     if re.search('close', res):
         dict_app = {
-            'chrome': 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
-            'league': 'E:\Riot Games\League of Legends\LeagueClient.exe',
-            'yogi': 'E:\Games\Yu-Gi-Oh.Legacy.of.the.Duelist.Link.Evolution-GoldBerg\Yu-Gi-Oh! Legacy of the Duelist Link Evolution\YuGiOh.exe'
+            'chrome': 'C:\Program Files\Google\Chrome\Application\chrome.exe',
+            # 'league': 'E:\Riot Games\League of Legends\LeagueClient.exe',
+            # 'yogi': 'E:\Games\Yu-Gi-Oh.Legacy.of.the.Duelist.Link.Evolution-GoldBerg\Yu-Gi-Oh! Legacy of the Duelist Link Evolution\YuGiOh.exe'
         }
 
         app = res.split(' ', 1)[1]
