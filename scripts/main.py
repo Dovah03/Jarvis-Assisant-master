@@ -3,6 +3,7 @@ import JarvisAI
 import re
 import pprint
 import random
+import keyboard
 
 Mavis = JarvisAI.JarvisAssistant()
 
